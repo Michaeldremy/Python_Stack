@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+    <h2>Random Word (attempt #{{request.session.counter}})</h2>
+        <h1>{{random_word}}</h1>
+        <a href="/count"><button>Generate</button></a>
+    </form>
+</body>
+</html>

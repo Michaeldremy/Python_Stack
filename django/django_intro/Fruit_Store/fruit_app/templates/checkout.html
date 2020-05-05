@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+</head>
+<body>
+    <h2>Thank you for your order!</h2>
+
+    <h3>We ordered {{ count }} items for you and charged your
+        <br>
+        student account on {{ time }} </h3>
+        <br>
+        <h3>You've Ordered</h3>
+        <label for="fruit_name">Fruit Name</label>
+        <label for="quantity">Quantity</label>
+        <li>Strawberry: {{ fruit_one_from_form }}</li>
+        <li>Raspberry: {{ fruit_two_from_form }}</li>
+        <li>Apple: {{ fruit_three_from_form }}</li>
+        <br>
+        <div class="your_info">
+            <h3>Your Information</h3>
+            <li>Name: {{ form_name }}</li>
+            <li>Student ID: {{ form_student_ID_num }}</li>
+        </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Your Gold: {{request.session.yourGold}}</h2>
+    <form action="process_money" method="POST">
+        {% csrf_token %}
+        <h2>Farm</h2>
+        <h3>(earns 10 - 20 gold)</h3>
+        <button type="submit" value="Farm" name="Farm_form">Find Gold!</button>
+    </form>
+    <form action="process_money" method="POST">
+        {% csrf_token %}
+        <h2>Cave</h2>
+        <h3>(earns 5 - 10 gold)</h3>
+        <button type="submit" name="Cave">Find Gold!</button>
+    </form>
+    <form action="process_money" method="POST">
+        {% csrf_token %}
+        <h2>House</h2>
+        <h3>(earns 2 - 5 gold)</h3>
+        <button type="submit" name="House">Find Gold!</button>
+    </form>
+    <form action="process_money" method="POST">
+        {% csrf_token %}
+        <h2>Casino</h2>
+        <h3>(earns/takes 0-50 gold)</h3>
+        <button type="submit" name="Casino">Find Gold!</button>
+    </form>
+    <h2>Activities:</h2>
+    <textarea name="activites" rows="8" cols="180"><!--this box is used later to put info about what you clicked for the submit buttons-->
+    </textarea>
+</body>
+</html>

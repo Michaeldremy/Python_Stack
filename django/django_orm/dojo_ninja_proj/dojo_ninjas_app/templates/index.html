@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Add a Dojo</h1>
+    <form action="add_dojo" method="POST">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" name="name">
+        <br>
+        <label for="city">City</label>
+        <input type="text" name="city">
+        <br>
+        <label for="state">State</label>
+        <input type="text" name="state">
+        <br>
+        <input type="submit" value="Add">
+    </form>
+    <h1>Add a Ninja</h1>
+    <form action="add_ninja" method="POST">
+        {% csrf_token %}
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name">
+        <br>
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name">
+        <br>
+        <label for="dojo_dropdown">Dojo</label>
+        <select name="dojo_dropdown">
+            {% for info in addDojo %}
+            <option value="{{info.name}}">{{info.name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Add">
+    </form>
+    <h1>All the Dojos</h1>
+    {% for info in addDojo %}
+    <h4>Ninjas at the {{ info.name }} </h4>
+        <ul>{% for names in info.ninja.all%}
+            <li>{{names.first_name}} {{ names.last_name}}</li>
+            {% endfor %}</ul>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+1. Dojos.objects.create(name="CDojo",city="Redmond",state="WA"), Dojos.objects.create(name="YDojo",city="Yakima",state="WA"), Dojos.objects.create(name="TDojo",city="Tacoma",state="WA")
+2. c = Dojos.objects.get(id=1) --> c.delete() # Repeat while changing the id to grab to delete all.
+3. Dojos.objects.create(name="Coding Dojo",city="Redmond",state="WA"), Dojos.objects.create(name="Ghetto Dojo",city="Spanaway",state="WA"), Dojos.objects.create(name="Wacko Dojo",city="Portland",state="OR")
+4. my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=4),first_name="Michael",last_name="Remy"), my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Jacob",last_name="Remy"), my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=4),first_name="Becca",last_name="Rollins")
+5. my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Reed",last_name="Jesper"), my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Sparrow",last_name="Jackson")
+6. my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Jacky",last_name="Nicholas"), my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Cartman",last_name="Kenny"), my_ninja = Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Jenny",last_name="Smit")
+7. this_dojo = Dojos.objects.get(id=4), ninja = Ninjas.objects.filters(dojo_id=this_dojo), ninja
+8. last_dojo = Dojos.objects.last(), last_ninja = Ninjas.objects.filter(dojo_id=last_dojo)
+9. ln_dojo = Ninjas.objects.last().dojo_id
+10. Dojos.objects.create(name="SunnySide Dojo",city="Puyallup",state="WA", desc="Old Dojo")

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dojo Fruit Store!</h1>
+    <br>
+    <div class="info_about_store">
+        <h3>Welcome to the Dojo Fruit Store</h3>
+        <p>Your dojo decided to buy fruits for all the students!
+            Please use this app to tell us what you would like to have!
+            Once we get your order, we'll charge your student account automatically.
+            <br>
+            Dojo Fruit Store is proudly built using Django.
+        </p>
+    </div>
+    <br>
+    <h3>What would you like to buy?</h3>
+    <form action="checkout" method="POST">
+        {% csrf_token %}
+        <div class="info_box">
+            <label for="fruit_name">Fruit Name</label>
+            <label for="quantity">Quantity</label>
+        </div>
+        <label for="form_strawberry">Strawberry</label>
+        <input type="number" name="form_strawberry">
+        <br>
+        <label for="form_raspberry">Raspberry</label>
+        <input type="number" name="form_raspberry">
+        <br>
+        <label for="form_apple">Apple</label>
+        <input type="number" name="form_apple">
+    <br>
+    <br>
+    <h3>Your Information</h3>
+        <label for="form_name">Name: </label>
+        <input type="text" name="form_name">
+        <br>
+        <label for="form_student_ID">Your Student ID: </label>
+        <input type="number" name="form_student_ID">
+        <br>
+        <input type="submit" value="Buy me stuff!">
+    </form>
+</body>
+</html>

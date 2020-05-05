@@ -1,0 +1,60 @@
+>>>Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby<<<
+csharp = Book.objects.create(title="C Sharp",desc="A book about C#")
+java = Book.objects.create(title="Java",desc="A book about Java")
+python = Book.objects.create(title="Python",desc="A book about Python")
+php = Book.objects.create(title="PHP",desc="A book about PHP")
+ruby = Book.objects.create(title="Ruby",desc="A book about Ruby")
+
+>>>Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevksy, William Shakespeare, Lau Tzu<<<
+jane_austen = Author.objects.create(first_name="Jane",last_name="Austen")
+emily_dickinson = Author.objects.create(first_name="Emily",last_name="Dickinson")
+fyodor_d = Author.objects.create(first_name="Fyodor",last_name="Dostoevsky")
+william_s = Author.objects.create(first_name="William",last_name="Shakespeare")
+lau_t = Author.objects.create(first_name="Lau",last_name="Tzu")
+
+>>>Query: Change the name of the C Sharp book to C#<<<
+c = Book.objects.get(id=1)
+c.title="C#"
+c.save()
+
+>>>Query: Change the first name of the 4th author to Bill<<<
+four_author = Author.objects.get(id=4)
+four_author.first_name="Bill"
+four_author.save()
+
+>>>Query: Assign the first author to the first 2 books<<<
+jane_austen.books.add(csharp)
+jane_austen.books.add(java)
+
+>>>Query: Assign the second author to the first 3 books<<<
+emily_dickinson.books.add(csharp)
+emily_dickinson.books.add(java)
+emily_dickinson.books.add(python)
+
+>>>Query: Assign the third author to the first 4 books<<<
+fyodor_d.books.add(csharp)
+fyodor_d.books.add(java)
+fyodor_d.books.add(python)
+fyodor_d.books.add(php)
+
+>>>Query: Assign the fourth author to the first 5 books (or in other words, all the books)<<<
+william_s.books.add(csharp)
+william_s.books.add(java)
+william_s.books.add(python)
+william_s.books.add(php)
+william_s.books.add(ruby)
+
+>>>Query: Retrieve all the authors for the 3rd book<<<
+python.author.all()
+
+>>>Query: Remove the first author of the 3rd book<<<
+The first author was never apart of the 3rd book.
+
+>>>Query: Add the 5th author as one of the authors of the 2nd book<<<
+lau_t.books.add(java)
+
+>>>Query: Find all the books that the 3rd author is part of<<<
+fyodor_d.books.all()
+
+>>>Query: Find all the authors that contributed to the 5th book<<<
+ruby.author.all()

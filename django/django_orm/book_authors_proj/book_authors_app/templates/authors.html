@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <h1 class="text-center">Add an Author</h1>
+                <form action="/add_author" method="POST">
+                    {% csrf_token %}
+                    <div class="row form-group">
+                        <label class="col-sm-4" for="first_name">First Name</label>
+                        <input class="col-sm-8 form-control" type="text" name="first_name" style="float: right; width: 75%;">
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-sm-4" for="last_name">Last Name</label>
+                        <input class="col-sm-8 form-control" type="text" name="last_name" style="float: right; width: 75%;">
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-sm-4" for="notes">Notes</label>
+                        <textarea class="col-sm-8 form-control" name="notes" rows="3" style="vertical-align: top; float: right; width: 75%;"></textarea>
+                    </div>
+                    <div class="row form-group">
+                        <input style="margin-left: 33.35%;" type="submit" value="Add">
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="row-col text center py-3">
+                    <table class="table table-bordered table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for authors in authors_title %}
+                            <tr>
+                                <td>{{authors.id}}</td>
+                                <td>{{authors.first_name}} {{authors.last_name}}</td>
+                                <td><a href="authors/{{authors.id}}">View</a></td>
+                            </tr>
+                        </tbody>
+                                {% endfor%}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
